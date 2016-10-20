@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    models:
+      uploaded_file:
+        one: Arquivo
+        other: Arquivos
+    attributes:
+      uploaded_file:
+        data: Arquivo
+        name: Nome
+        extension: Extensão
+  helpers:
+    submit:
+      uploaded_file:
+        create: "Criar %{model}"
