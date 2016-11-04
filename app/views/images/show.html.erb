@@ -1,8 +1,20 @@
-<p>
-  <strong>Name:</strong>
-  <%= @image.name %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <strong>Nome do Arquivo:</strong>
+    <%= @image.name %>
 
-<%= link_to 'Edit', edit_image_path(@image) %>
-|
-<%= link_to 'Back', images_path %>
+    <%= link_to show_image_image_path(@image) do %>
+      <%= image_tag show_image_image_path(@image), size: '200x200', class: "img-responsive" %>
+    <% end %>
+
+    <div class="form-group" style="margin-top: 20px">
+      <%= link_to images_path, class: 'btn btn-default' do %>
+        <%= fa_icon "arrow-left", text: 'Voltar' %>
+      <% end %>
+
+      <%= link_to edit_image_path(@image), class: 'btn btn-warning' do %>
+        <%= fa_icon "edit", text: 'Editar' %>
+      <% end %>
+    </div>
+  </div>
+</div>

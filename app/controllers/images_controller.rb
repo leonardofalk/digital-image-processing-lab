@@ -1,15 +1,19 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [:show, :show_image, :edit, :update, :destroy]
 
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @images = Image.where(image_collection_id: nil)
   end
 
   # GET /images/1
   # GET /images/1.json
   def show
+  end
+
+  def show_image
+    send_data @image.data, :type => 'image/png', :disposition => 'inline'
   end
 
   # GET /images/new

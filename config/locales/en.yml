@@ -1,10 +1,21 @@
 en:
   activerecord:
     models:
+      image:
+        one: Imagem
+        other: Imagens
       uploaded_file:
         one: Arquivo
         other: Arquivos
+      image_collection:
+        one: Coleção de Imagens
+        other: Coleções de Imagens
     attributes:
+      image_collection:
+        name: Nome
+        attached_images: Imagens do Conjunto
+      image:
+        data: Arquivos
       uploaded_file:
         data: Arquivo
         name: Nome

@@ -1,12 +1,22 @@
 <%= simple_form_for(@image_collection) do |f| %>
-<%= f.error_notification %>
+  <%= f.error_notification %>
 
-<div class="form-inputs">
-  <%= f.input :name %>
-  <%= f.input :attached_images, as: :select, collection: Image.all.order(id: :asc), input_html: {multiple: true} %>
-</div>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :attached_images, as: :select, collection: Image.all.order(id: :asc), input_html: {multiple: true} %>
+  </div>
 
-<div class="form-actions">
-  <%= f.button :submit %>
-</div>
+  <div class="form-actions">
+    <%= link_to image_collections_path, class: "btn btn-default" do %>
+      <%= fa_icon "arrow-left", text: "Voltar" %>
+    <% end %>
+    <% unless @image_collection.new_record? %>
+      <%= link_to image_collection_path(@image_collection), class: "btn btn-success" do %>
+        <%= fa_icon "eye", text: "Ver" %>
+      <% end %>
+    <% end %>
+    <%= button_to image_collections_path, type: :submit, class: 'btn btn-primary' do %>
+      <%= fa_icon "paper-plane-o", text: 'Salvar' %>
+    <% end %>
+  </div>
 <% end %>

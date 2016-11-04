@@ -1,8 +1,26 @@
-<p>
-  <strong>Name:</strong>
-  <%= @image_collection.name %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <strong>Name:</strong>
+    <%= @image_collection.name %>
 
-<%= link_to 'Edit', edit_image_collection_path(@image_collection) %>
-|
-<%= link_to 'Back', image_collections_path %>
+    <div class="form-group">
+      <%= link_to image_collections_path, class: 'btn btn-default' do %>
+        <%= fa_icon "arrow-left", text: 'Voltar' %>
+      <% end %>
+
+      <%= link_to edit_image_collection_path(@image_collection), class: 'btn btn-warning' do %>
+        <%= fa_icon "edit", text: 'Editar' %>
+      <% end %>
+    </div>
+
+    <strong>Imagens do Conjunto:</strong>
+  </div>
+
+  <div class="col-md-12">
+    <% @image_collection.images.each do |image| %>
+      <%= link_to image_path(image), class: "btn btn-success" do %>
+        <%= fa_icon "eye", text: image.name %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

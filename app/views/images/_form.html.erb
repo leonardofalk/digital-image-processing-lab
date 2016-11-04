@@ -1,11 +1,23 @@
-<%= simple_form_for(@image) do |f| %>
-<%= f.error_notification %>
+<div class="row">
+  <div class="col-md-12">
+    <%= simple_form_for(@image) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :data, as: :file, input_html: {multiple: true} %>
+      </div>
 
-<div class="form-inputs">
-  <%= f.input :data, as: :file, input_html: {multiple: true} %>
+      <div class="form-group">
+        <%= link_to images_path, class: 'btn btn-default' do %>
+          <%= fa_icon "arrow-left", text: 'Voltar' %>
+        <% end %>
+        <% unless @image.new_record? %>
+          <%= link_to image_path(@image), class: 'btn btn-success' do %>
+            <%= fa_icon "eye", text: 'Ver' %>
+          <% end %>
+        <% end %>
+        <%= button_to images_path, type: :submit, class: 'btn btn-primary' do %>
+          <%= fa_icon "paper-plane-o", text: 'Salvar' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<div class="form-actions">
-  <%= f.button :submit %>
-</div>
-<% end %>

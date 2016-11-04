@@ -29,10 +29,10 @@ class ImageCollectionsController < ApplicationController
     respond_to do |format|
       if @image_collection.save
         image_collection_params[:attached_images].reject(&:empty?).each do |id|
-          image = Image.find(id)
-          image.image_collection_id = @image_collection.id
-          image.save
+          @image_collection.images << Image.find(id)
         end
+
+        @image_collection.save
 
         format.html { redirect_to @image_collection, notice: 'Image collection was successfully created.' }
         format.json { render :show, status: :created, location: @image_collection }
