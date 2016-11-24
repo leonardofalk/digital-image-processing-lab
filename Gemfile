@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'font-awesome-rails'
+gem 'ruby-opencv'
 
 group :development, :test do
   gem 'byebug', platform: :mri

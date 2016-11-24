@@ -13,7 +13,10 @@ class ImagesController < ApplicationController
   end
 
   def show_image
-    send_data @image.data, :type => 'image/png', :disposition => 'inline'
+    # ext = @image.name.scan(/^.+\.(.+)$/i).first.first
+    # ext = "image/#{ext}"
+
+    send_data @image.data, disposition: 'inline'
   end
 
   # GET /images/new
@@ -35,6 +38,8 @@ class ImagesController < ApplicationController
       end
 
       @image.save
+
+      p @image.errors.full_messages
     end
 
     respond_to do |format|
