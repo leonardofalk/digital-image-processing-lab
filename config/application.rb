@@ -21,5 +21,9 @@ module Dip
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    config.after_initialize do |app|
+      app.config.paths.add 'app/services', eager_load: true
+    end
   end
 end

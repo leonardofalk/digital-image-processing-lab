@@ -38,12 +38,12 @@ class ImagesController < ApplicationController
       end
 
       @image.save
-
-      p @image.errors.full_messages
     end
 
     respond_to do |format|
       if @image.save
+        ImageCv.new(@image)
+
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
