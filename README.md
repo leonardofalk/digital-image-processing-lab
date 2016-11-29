@@ -1,24 +1,73 @@
-# README
+# Digital Image Processing Uricer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Programa para disciplina de Processamento Digital de Imagens 02/2016
 
-Things you may want to cover:
+Detectar pontos de esclerose no cérebro e mostrar essa informaço de uma maneira legível.
+Converter imagens axiais para sagitais e coronais.
 
-* Ruby version
+#### Métodos
 
-* System dependencies
+##### ImageCv.create_coronal
 
-* Configuration
+Cria os arquivos do ângulo coronal das imagens baseado nos dados do axial.
 
-* Database creation
+Exemplo:
+```ruby
+ImageCv.create_coronal
+```
+Arquivo Original:
 
-* Database initialization
+![Arquivo Original](https://raw.githubusercontent.com/leonardofalk/digital-image-processing-uricer/master/mri_flair_axial100.png)
 
-* How to run the test suite
+Imagem Produzida:
 
-* Services (job queues, cache servers, search engines, etc.)
+![Imagem Produzida](https://raw.githubusercontent.com/leonardofalk/digital-image-processing-uricer/master/mri_flair_coronal40.png)
 
-* Deployment instructions
+##### ImageCv.create_sagital
 
-* ...
+Cria os arquivos do ângulo sagital das imagens baseado nos dados do axial.
+
+Exemplo:
+```ruby
+ImageCv.create_sagital
+```
+Arquivo Original:
+
+![Arquivo Original](https://raw.githubusercontent.com/leonardofalk/digital-image-processing-uricer/master/mri_flair_axial100.png)
+
+Imagem Produzida:
+
+![Imagem Produzida](https://raw.githubusercontent.com/leonardofalk/digital-image-processing-uricer/master/sagital100.png)
+
+##### ImageCv.esclerosis_detection(threshold, save_binary_file)
+
+Detecta os pontos de esclerose baseado em um limite (threshold) dado, salva arquivos binários de detecção caso configurado.
+
+Exemplo:
+```ruby
+# threshold: 0-255
+# save_binary_file: true/false
+ImageCv.esclerosis_detection(150, false)
+```
+
+Arquivo Original:
+
+![Arquivo Original](https://raw.githubusercontent.com/leonardofalk/digital-image-processing-uricer/master/mri_flair_axial100.png)
+
+Threshold 150:
+
+![Threshold 150](https://raw.githubusercontent.com/leonardofalk/digital-image-processing-uricer/master/esclerose100t150.png)
+
+Threshold 127:
+
+![Threshold 127](https://raw.githubusercontent.com/leonardofalk/digital-image-processing-uricer/master/esclerose100t127.png)
+
+# ToDo
+
+- [ ] Refatorar código para usar de forma mais programática.
+- [ ] Renderizar os dados usando alguma biblioteca gráfica.
+
+# Dependências
+
+- [ruby-opencv](https://github.com/ruby-opencv/ruby-opencv)
+- [opencv](https://github.com/opencv/opencv)
