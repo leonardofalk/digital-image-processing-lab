@@ -2,7 +2,7 @@
 
 Programa para disciplina de Processamento Digital de Imagens 02/2016
 
-Detectar pontos de esclerose no cérebro e mostrar essa informaço de uma maneira legível.
+Detectar pontos de esclerose no cérebro e mostrar essa informação de uma maneira legível.
 Converter imagens axiais para sagitais e coronais.
 
 #### Métodos
